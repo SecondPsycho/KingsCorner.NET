@@ -1,0 +1,40 @@
+﻿@page
+@model TutorialModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@{
+//using namespace MyWebApp.Pages;
+
+}
+
+<div class="text-center">
+    <h1>How to play King's Corner</h1>
+    
+    <p>
+        The game is played with an ordinary deck of playing cards. 
+        Each turn, you draw a single card and must place it somewhere on a 4x4 grid.
+        Each card is represented with a 2-character code ('KS' for King of Spades, '0H' for 10 of Hearts, '3C' for 3 of Clubs, etc.)
+    </p>
+    <!-- WIP Include image of the board -->
+    <p>
+        Each card has rules about where it can be placed. <br>
+        Kings can only be placed in corners. <br>
+        Queens can only be placed in the leftmost and rightmost squares (But not corners). <br>
+        Jacks can only be placed in the top or bottom squares (again, not counting corners). <br> 
+        Aces and Numbered cards can be placed anywhere. <br>
+    </p>
+    <!-- WIP Include image of the board -->
+    <p>
+        If two cards add up to 10, you can match them together and remove them from the board.
+        (ex: a 3 and a 7, an ace and a nine, or two fives can be matched together. A ten can be matched with itself.)
+        (You can ignore suits.)
+    </p>
+    <!-- More Images? -->
+    <p>
+        If you run out of cards in the deck, you win!
+        If you can't find a legal move, you lose. Type `quit` to exit the game.
+        (Don't feel bad. Not all games are winnable.)
+        (Type 'help' to see the controls.)
+    </p>
+</div>

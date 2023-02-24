@@ -1,0 +1,26 @@
+@page
+<!-- Another addition to make blazor work -->
+@using MyWebApp.Components
+@model GameModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@{
+
+//using namespace MyWebApp.Pages;
+/*
+string tester() {
+    return "Hello, World!";
+}
+//*/
+}
+
+<div class="text-center">
+
+    <!-- Go to Components/Game.razor to see the code -->
+    @(await Html.RenderComponentAsync<Game>(RenderMode.ServerPrerendered))
+
+</div>
+
+
+

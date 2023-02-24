@@ -1,6 +1,6 @@
 //Additions added at the advice of https://www.youtube.com/watch?v=R23v4lgHYQI&list=PLdo4fOcmZ0oW8nviYduHq7bmKode-p8Wy&index=10
 
-namespace MyWebApp.Website
+namespace KingsCorner.Website
 {
 public class Program 
 {

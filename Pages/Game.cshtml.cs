@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MyWebApp.Pages;
+namespace KingsCorner.Pages;
 
 public class GameModel : PageModel
 {

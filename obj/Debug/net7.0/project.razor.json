@@ -18722,6 +18722,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\corde\\Documents\\Coding\\dotNet\\Kings_Corner_WebApp\\Pages\\Features.cshtml",
+      "TargetPath": "Pages\\Features.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\corde\\Documents\\Coding\\dotNet\\Kings_Corner_WebApp\\Pages\\Game.cshtml",
       "TargetPath": "Pages\\Game.cshtml",
       "FileKind": "mvc"

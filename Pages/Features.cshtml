@@ -1,0 +1,42 @@
+﻿@page
+@model FeaturesModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@{
+
+}
+
+<style>
+    p, li {
+        text-align: left;
+    }
+</style>
+
+<div class="text-center" style="width:800px;margin:auto;">
+    <h1>Useful Features</h1>
+    <p style="font-size: 14px;text-align:center">(Take note, employers ;) )</p>
+
+    <br>
+    <h2>Find this project on GitHub</h2>
+    <a href="https://github.com/SecondPsycho/KingsCorner.NET">https://github.com/SecondPsycho/KingsCorner.NET</a>
+
+    <br><br>
+    <h2>Files to Notice:</h2>
+    <div style="width:600px;margin:auto;">
+        <li><em>Components/Game.razor</em> - Contains all the code to play King's Corner</li>
+        <li><em>wwwroot/css/site.css</em> - Contains most of my CSS</li>
+    </div>
+    
+    <br>
+    <h2>Neat Coding Features:</h2>
+    <h4>Undo Functionality</h4>
+    <p>I store every player action in a linked list I built myself. Even after the game is won, you can 'undo' all the way back to the beginning if you want!</p>
+    <h4>Every game is Winnable</h4>
+    <p>
+        If you're playing with physical cards, you might suffer "gridlock" - a situation where there are no matches, but every tile on the board is taken.
+        If this happens, you lose. There's nothing you can do about it; it was inevitable from the start. 
+        My code checks if this will happen right when you click 'New Game' and reshuffles the deck until you get a game it's actually physically possible to win!
+    </p>
+
+</div>

@@ -23,9 +23,9 @@ body {
   margin-bottom: 60px;
 }
 
-/* MY ADDITIONS */
+/* MY ADDITIONS (Game.razor is the only file that uses any of these)*/
 
-/* Something to scale the page */
+/* Something to scale the page easily */
 :root {
   --scale: 10;
 }

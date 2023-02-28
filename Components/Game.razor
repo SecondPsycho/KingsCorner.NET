@@ -1,7 +1,8 @@
 <!-- Note: I had to add the _Imports.razor file for events to work. Source: https://stackoverflow.com/questions/58196812/blazor-onclick-event-not-triggered -->
-<div>
-    <h1>King's Corner</h1>
-    <div> <!-- The Buttons -->
+
+<h1 class="game-header">King's Corner</h1>
+<div class="game">
+    <div class="board"> <!-- The Buttons -->
         <button class="tile" @onclick="() => Trigger(0,0)">@board[0,0]</button>
         <button class="tile" @onclick="() => Trigger(0,1)">@board[0,1]</button>
         <button class="tile" @onclick="() => Trigger(0,2)">@board[0,2]</button>
@@ -23,19 +24,19 @@
         <button class="tile" @onclick="() => Trigger(3,3)">@board[3,3]</button>
         <br>
     </div>
-    <div> <!-- Game Options -->
-        <br>
-        <button @onclick="New_Game">New Game</button>
-        <button @onclick="Undo">Undo</button>
+    <div class="side-board"> <!-- Output Messages -->
+        <div class="output">
+            <br>
+            <p>@output_message_0</p> <!-- Usually reports the next card -->
+            <p>@output_message_1</p> <!-- Usually reports control feedback & error messages -->
+        </div>
+        <div class="controls"> <!-- Game Options -->
+            <br>
+            <button class="control-btn" @onclick="Undo">Undo</button>
+            <br>
+            <button class="control-btn" @onclick="New_Game">New Game</button>
+        </div>
     </div>
-    <div> <!-- Output Messages -->
-        <br>
-        <p>@output_message_0</p> <!-- Usually reports the next card -->
-        <p>@output_message_1</p> <!-- Usually reports control feedback & error messages -->
-    </div>
-
-    
-
 </div>
 
 @code {
@@ -549,9 +550,9 @@
 
 <!-- TODO 
 Make it Pretty
- - Improve CSS
  - Create Tile Highlights
  - Remove Underlines from blank tiles
+ - Have Page Scale with browser size
  - Use Card Images
 
 Add some Usability

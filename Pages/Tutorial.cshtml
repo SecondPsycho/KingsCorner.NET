@@ -4,37 +4,52 @@
     ViewData["Title"] = "Home page";
 }
 @{
-//using namespace KingsCorner.Pages;
 
 }
 
-<div class="text-center">
+<style>
+    p, li {
+        text-align: left;
+    }
+</style>
+
+<div class="text-center" style="width: 800px;margin:auto;">
     <h1>How to play King's Corner</h1>
     
     <p>
         The game is played with an ordinary deck of playing cards. 
         Each turn, you draw a single card and must place it somewhere on a 4x4 grid.
-        Each card is represented with a 2-character code ('KS' for King of Spades, '0H' for 10 of Hearts, '3C' for 3 of Clubs, etc.)
+        Each card is represented with a 2-character code ('QC' for Queen of Clubs, '0H' for 10 of Hearts, '6D' for 6 of Diamonds, etc.).
     </p>
-    <!-- WIP Include image of the board -->
+    <img src="/Images/sample_game_start.png" style="height:400px;" alt="What the game looks like, near the start" title="A board with six cards already played. Next, the player must place the 6 of Diamonds.">
     <p>
-        Each card has rules about where it can be placed. <br>
-        Kings can only be placed in corners. <br>
-        Queens can only be placed in the leftmost and rightmost squares (But not corners). <br>
-        Jacks can only be placed in the top or bottom squares (again, not counting corners). <br> 
-        Aces and Numbered cards can be placed anywhere. <br>
+        Each card has rules about where it can be placed.
     </p>
-    <!-- WIP Include image of the board -->
+        <li>Kings can only be placed in corners.</li>
+        <li>Queens can only be placed in the leftmost and rightmost squares (But not corners).</li>
+        <li>Jacks can only be placed in the top or bottom squares (again, not counting corners).</li> 
+        <li>Aces and Numbered cards can be placed anywhere.</li>
+    <br>
+    <p>
+        Once you've placed all the face cards, you win!
+    </p>
+    <img src="/Images/sample_game_win.png" style="height:400px;" alt="What the game looks like when you win" title="Even once you've won, you can still play and match cards.">
     <p>
         If two cards add up to 10, you can match them together and remove them from the board.
-        (ex: a 3 and a 7, an ace and a nine, or two fives can be matched together. A ten can be matched with itself.)
+        (ex: a 3 and a 7, an ace and a nine, or two fives can be matched together.)
         (You can ignore suits.)
     </p>
-    <!-- More Images? -->
+    <img src="/Images/sample_game_match_example.png" style="height:400px;" alt="A visual example of matching cards" title="A 6 of Clubs matches with a 4 of Hearts, because 6 + 4 = 10.">
     <p>
-        If you run out of cards in the deck, you win!
-        If you can't find a legal move, you lose. Type `quit` to exit the game.
-        (Don't feel bad. Not all games are winnable.)
-        (Type 'help' to see the controls.)
+        A ten can be matched with itself. Just double-click on it.
     </p>
+    <img src="/Images/sample_game_match_example_ten.png" style="height:400px;" alt="A visual example of matching a ten with itself" title="Just double-click on a ten to make it disappear!">
+    <p>
+        If you can't find a legal move, you lose. Type `quit` to exit the game.
+    </p>
+    <img src="/Images/sample_game_lose.png" style="height:400px;" alt="What the game looks like when you lose" title="There's no matches to be made, and all the top and bottom tiles are taken. There's nowhere to put the Jack of Diamonds.">
+    <p>
+        Don't worry, though! You can always click 'Undo' as many times as you need. Or click 'New Game' to reshuffle the deck and start a new game!
+    </p>
+    <h2>Good Luck!</h2>
 </div>

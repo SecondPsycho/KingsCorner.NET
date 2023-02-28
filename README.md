@@ -23,4 +23,5 @@ A web app to play King's Corner, written in a .NET framework using Razor/Blazor,
 ### Undo Functionality
     The code uses a linked list to allow you to undo moves. You'll never have to lose again!
 ### Every game is Winnable
-    If you're shuffling physical cards, not every game will be winnable. My code detects these games before you start, and reshuffles until you get a game you can actually win!
+    If you're shuffling physical cards, not every game will be winnable. 
+    My code detects these games before you start, and reshuffles until you get a game you can actually win!

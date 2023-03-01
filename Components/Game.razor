@@ -3,32 +3,33 @@
 <h1 class="game-header">King's Corner</h1>
 <div class="game">
     <div class="board"> <!-- The Buttons -->
-        <button class="tile" @onclick="() => Trigger(0,0)">@board[0,0]</button>
-        <button class="tile" @onclick="() => Trigger(0,1)">@board[0,1]</button>
-        <button class="tile" @onclick="() => Trigger(0,2)">@board[0,2]</button>
-        <button class="tile" @onclick="() => Trigger(0,3)">@board[0,3]</button>
+        <button class="tile" @onclick="() => Trigger(0,0)"><img class="card" src=@Get_Image(board[0,0]) alt=@To_Text(board[0,0]) title=@To_Text(board[0,0])></button>
+        <button class="tile" @onclick="() => Trigger(0,1)"><img class="card" src=@Get_Image(board[0,1]) alt=@To_Text(board[0,1]) title=@To_Text(board[0,1])></button>
+        <button class="tile" @onclick="() => Trigger(0,2)"><img class="card" src=@Get_Image(board[0,2]) alt=@To_Text(board[0,2]) title=@To_Text(board[0,2])></button>
+        <button class="tile" @onclick="() => Trigger(0,3)"><img class="card" src=@Get_Image(board[0,3]) alt=@To_Text(board[0,3]) title=@To_Text(board[0,3])></button>
         <br>
-        <button class="tile" @onclick="() => Trigger(1,0)">@board[1,0]</button>
-        <button class="tile" @onclick="() => Trigger(1,1)">@board[1,1]</button>
-        <button class="tile" @onclick="() => Trigger(1,2)">@board[1,2]</button>
-        <button class="tile" @onclick="() => Trigger(1,3)">@board[1,3]</button>
+        <button class="tile" @onclick="() => Trigger(1,0)"><img class="card" src=@Get_Image(board[1,0]) alt=@To_Text(board[1,0]) title=@To_Text(board[1,0])></button>
+        <button class="tile" @onclick="() => Trigger(1,1)"><img class="card" src=@Get_Image(board[1,1]) alt=@To_Text(board[1,1]) title=@To_Text(board[1,1])></button>
+        <button class="tile" @onclick="() => Trigger(1,2)"><img class="card" src=@Get_Image(board[1,2]) alt=@To_Text(board[1,2]) title=@To_Text(board[1,2])></button>
+        <button class="tile" @onclick="() => Trigger(1,3)"><img class="card" src=@Get_Image(board[1,3]) alt=@To_Text(board[1,3]) title=@To_Text(board[1,3])></button>
         <br>
-        <button class="tile" @onclick="() => Trigger(2,0)">@board[2,0]</button>
-        <button class="tile" @onclick="() => Trigger(2,1)">@board[2,1]</button>
-        <button class="tile" @onclick="() => Trigger(2,2)">@board[2,2]</button>
-        <button class="tile" @onclick="() => Trigger(2,3)">@board[2,3]</button>
+        <button class="tile" @onclick="() => Trigger(2,0)"><img class="card" src=@Get_Image(board[2,0]) alt=@To_Text(board[2,0]) title=@To_Text(board[2,0])></button>
+        <button class="tile" @onclick="() => Trigger(2,1)"><img class="card" src=@Get_Image(board[2,1]) alt=@To_Text(board[2,1]) title=@To_Text(board[2,1])></button>
+        <button class="tile" @onclick="() => Trigger(2,2)"><img class="card" src=@Get_Image(board[2,2]) alt=@To_Text(board[2,2]) title=@To_Text(board[2,2])></button>
+        <button class="tile" @onclick="() => Trigger(2,3)"><img class="card" src=@Get_Image(board[2,3]) alt=@To_Text(board[2,3]) title=@To_Text(board[2,3])></button>
         <br>
-        <button class="tile" @onclick="() => Trigger(3,0)">@board[3,0]</button>
-        <button class="tile" @onclick="() => Trigger(3,1)">@board[3,1]</button>
-        <button class="tile" @onclick="() => Trigger(3,2)">@board[3,2]</button>
-        <button class="tile" @onclick="() => Trigger(3,3)">@board[3,3]</button>
+        <button class="tile" @onclick="() => Trigger(3,0)"><img class="card" src=@Get_Image(board[3,0]) alt=@To_Text(board[3,0]) title=@To_Text(board[3,0])></button>
+        <button class="tile" @onclick="() => Trigger(3,1)"><img class="card" src=@Get_Image(board[3,1]) alt=@To_Text(board[3,1]) title=@To_Text(board[3,1])></button>
+        <button class="tile" @onclick="() => Trigger(3,2)"><img class="card" src=@Get_Image(board[3,2]) alt=@To_Text(board[3,2]) title=@To_Text(board[3,2])></button>
+        <button class="tile" @onclick="() => Trigger(3,3)"><img class="card" src=@Get_Image(board[3,3]) alt=@To_Text(board[3,3]) title=@To_Text(board[3,3])></button>
         <br>
     </div>
     <div class="side-board"> <!-- Output Messages -->
         <div class="output">
             <br>
-            <p>@output_message_0</p> <!-- Usually reports the next card -->
-            <p>@output_message_1</p> <!-- Usually reports control feedback & error messages -->
+            <p class="output-text">@output_message_0</p> <!-- Usually reports the next card -->
+            <img class="card" style="margin:auto;" src=@Get_Image(output_image) atl=@To_Text(output_image) title=@To_Text(output_image)> <!-- Show the user which card is next -->
+            <p class="output-text">@output_message_1</p> <!-- Usually reports control feedback & error messages -->
         </div>
         <div class="controls"> <!-- Game Options -->
             <br>
@@ -40,6 +41,19 @@
 </div>
 
 @code {
+
+/* Yeah this don't work. Maybe if I convert it to Javascript. WIP
+    public string Print_Button(int y_par, int x_par) {
+        char y = (char)y_par;
+        char x = (char)x_par;
+        return "<button class=\"tile\" @onclick=\"() => Trigger(" + y + ',' + x + 
+                ")\"><img class=\"card\" src=@Get_Image(board[" + y + ',' + x + 
+                "]) alt=@To_Text(board[" + y + ',' + x + 
+                "]) title=@To_Text(board[" + y + ',' + x + 
+                "])></button>"; 
+    }
+*/
+
 
     /* USEFUL CLASSES */
     //A Node for the Actions_List linked-list
@@ -221,8 +235,83 @@
     private Coords selected_tile = new Coords();                    //Define the Currently Selected Card
     private string output_message_0 = "Welcome to King's Corner!";  //Usually reports the next card
     private string output_message_1 = "Press 'New Game' to begin."; //Usually reports control feedback & error messages
+    private string output_image = "__";                             //Selects a card to show to the user
     private int current_card_index = 0;                             //Define the Current Card Index
     private bool game_on = false;                                   //Define a variable for if we are currently in-game
+
+    /* DISPLAY FUNCTIONS */
+    //For displaying the Board
+    private string Get_Image(string card) {
+        return "/Images/cards/" + card + ".png";
+    }
+
+    //For displaying mouseover and alt text
+    private string To_Text(string card) {
+        string output = "";
+        switch (card[0]) {
+            case 'A':
+                output += "Ace";
+                break;
+            case '2':
+                output += "Two";
+                break;
+            case '3':
+                output += "Three";
+                break;
+            case '4':
+                output += "Four";
+                break;
+            case '5':
+                output += "Five";
+                break;
+            case '6':
+                output += "Six";
+                break;
+            case '7':
+                output += "Seven";
+                break;
+            case '8':
+                output += "Eight";
+                break;
+            case '9':
+                output += "Nine";
+                break;
+            case '0':
+                output += "Ten";
+                break;
+            case 'J':
+                output += "Jack";
+                break;
+            case 'Q':
+                output += "Queen";
+                break;
+            case 'K':
+                output += "King";
+                break;
+            default:
+                output += "Unknown";
+                break;
+        }
+        output += " of ";
+        switch (card[1]) {
+            case 'D':
+                output += "Diamonds";
+                break;
+            case 'S':
+                output += "Spades";
+                break;
+            case 'H':
+                output += "Hearts";
+                break;
+            case 'C':
+                output += "Clubs";
+                break;
+            default:
+                output += "Unknown";
+                break;
+        }
+        return output;
+    }
 
     /* HELPER FUNCTIONS */
     //Shuffle helper function; swaps two card locations in a given deck
@@ -448,18 +537,27 @@
         //Check for Victory
         if (current_card_index >= 52) { //If we've reached the deck, assume the player has won.
             output_message_0 = "Click 'New Game' to play again.";
+            output_image = "__";
             output_message_1 = "YOU WIN!";
             if (board[1,1] == "__" && board[1,2] == "__" && board[2,1] ==  "__" && board[2,2] == "__") { //If the board is completely cleared, shut off inputs.
                 game_on = false;
             }
-        } else if (Player_Has_Won()) {
-            output_message_0 = "Your next card is: " + deck[current_card_index];
+            return;
+        }
+        //Since we have a next card, display it.
+        output_message_0 = "Your next card:";
+        output_image = deck[current_card_index];
+        
+        //Check for more IMMEDIATE Victory
+        if (Player_Has_Won()) {
             output_message_1 = "YOU WIN!";
         } else {
-            output_message_0 = "Your next card is: " + deck[current_card_index];
+            //If the game just started...
+            if (current_card_index == 0) {
+                output_message_1 = "Loaded a New Game.";
 
             //Check for Defeat
-            if (No_Valid_Moves(deck[current_card_index])) {
+            } else if (No_Valid_Moves(deck[current_card_index])) {
                 output_message_1 = "NO VALID MOVES.";
                 game_on = false;
             } else {
@@ -542,8 +640,7 @@
         Shuffle(deck);
         while (Is_Not_Winnable(deck)) { Shuffle(deck); };
         current_card_index = 0;
-        output_message_0 = "Your next card is: " + deck[current_card_index];
-        output_message_1 = "Loaded a New Game.";
+        Update_Display();
         game_on = true;
     }
 }
@@ -554,8 +651,9 @@ Make it Pretty
  - Remove Underlines from blank tiles
  - Have Page Scale with browser size
  - Use Card Images
+ - Tutorial should mention no Jokers; include a "What is King's Corner" section
+ - Update Tutorial to show new cards
 
 Add some Usability
  - Automatically start new game when the page loads
- - Create a "Features" page to detail all the work I put into this project
 -->

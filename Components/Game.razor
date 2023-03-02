@@ -291,8 +291,9 @@
                 output += "King";
                 break;
             default:
-                output += "Unknown";
-                break;
+                return "Empty Tile";
+                //output += "Unknown";
+                //break;
         }
         output += " of ";
         switch (card[1]) {
@@ -568,8 +569,29 @@
         }
     }
 
-    //A wrapper to call the JavaScript in `Game.cshtml`
+    //A quick helper for Update_Selected_Tile to check if the card is a face card
+    public bool Is_Face_Card(string card) {
+        switch (card[0]) {
+            case 'K':
+            case 'Q':
+            case 'J':
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    //Update the selected_tile, then call the JavaScript in `Game.cshtml`
     public void Update_Selected_Tile(int y_par, int x_par, bool valid=true) {
+        //Update the selected_tile
+        if (!valid || Is_Face_Card(board[y_par,x_par])) {
+            selected_tile.Reset();
+            valid = false;
+        } else {
+            selected_tile.Set(y_par,x_par);
+        }
+
+        //Call Javascript to update the highlights
         JS.InvokeVoidAsync("Set_Selected", y_par, x_par, valid);
     }
 
@@ -588,7 +610,6 @@
                     current_card_index++;
                     Update_Display();
                     Update_Selected_Tile(y, x, false);
-                    selected_tile.Reset();
                 };
 
             //If we've already selected a tile for matching, match it (if it's a legal move)
@@ -600,15 +621,13 @@
                     board[y,x] = "__";
                     Update_Display();
                 } else {
-                    output_message_1 = $"{board[selected_tile.y,selected_tile.x]} does not match {board[y,x]}";
+                    output_message_1 = $"The {To_Text(board[selected_tile.y,selected_tile.x])} does not match the {To_Text(board[y,x])}.";
                 };
                 
                 Update_Selected_Tile(y, x, false);
-                selected_tile.Reset();
             //If no tile has been selected for matching, select this tile
             } else {
                 Update_Selected_Tile(y, x);
-                selected_tile.Set(y,x);
             };
         }
     }

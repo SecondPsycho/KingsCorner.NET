@@ -7,12 +7,29 @@
 }
 @{
 
-//using namespace KingsCorner.Pages;
-/*
-string tester() {
-    return "Hello, World!";
-}
-//*/
+<script>
+    var selected_tile_y = -1;
+    var selected_tile_x = -1;
+
+    async function Set_Selected(y,x,valid) {
+        
+        if (valid) {
+            selected_tile_y = y;
+            selected_tile_x = x;
+            //Change the tile's color to yellow
+            var tile_id = "tile"+y.toString()+x.toString();
+            document.getElementById(tile_id).style.backgroundColor = "yellow";
+        } else {
+            //Change the former tile's color to gray
+            var tile_id = "tile"+selected_tile_y.toString()+selected_tile_x.toString();
+            document.getElementById(tile_id).style.backgroundColor = "darkgray";
+            selected_tile_y = -1;
+            selected_tile_x = -1;
+        };
+    }
+
+</script>
+
 }
 
 <div class="text-center">
@@ -20,6 +37,9 @@ string tester() {
     <!-- Go to Components/Game.razor to see the code -->
     @(await Html.RenderComponentAsync<Game>(RenderMode.ServerPrerendered))
 
+</div>
+
+<div>
 </div>
 
 
